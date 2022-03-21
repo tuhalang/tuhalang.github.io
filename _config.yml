@@ -2,15 +2,15 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://mazhuang.org
+url: https://tuhalang.github.io
 date_format: "ordinal"
-title: 码志
-subtitle: "公众号：闷骚的程序员"
-description: "马壮的个人博客，公众号：闷骚的程序员"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang, 闷骚的程序员
-timezone: Asia/Shanghai
+title: Tuhalang
+subtitle: "Lazy-man"
+description: "This is a blog of lazy-man: Tuhalang"
+keywords: Tuhalang, tuhalang, blog, coder, developer
+timezone: Asia/Ho_Chi_Minh
 encoding: "utf-8"
-repository: mzlogin/mzlogin.github.io
+repository: tuhalang/tuhalang.github.io
 # 对 css 和 js 资源的 cdn 加速配置
 cdn:
     jsdelivr:
@@ -64,11 +64,11 @@ email: chumpma@gmail.com
 navs:
   -
     href: /
-    label: 首页
+    label: Home
 
   -
     href: /categories/
-    label: 分类
+    label: Categories
 
 #   -
 #     href: /archives/
@@ -80,15 +80,15 @@ navs:
 
   -
     href: /wiki/
-    label: 维基
+    label: Wiki
 
   -
     href: /links/
-    label: 链接
+    label: Links
 
   -
     href: /about/
-    label: 关于
+    label: About
 
 # ---------------- #
 #       RSS        #
@@ -163,7 +163,7 @@ simple_jekyll_search:
 #      Google      #
 # ---------------- #
 google:
-    analytics_id: UA-80669434-1
+    analytics_id: UA-161740789-1
     adsense:
         footer: true
         sidebar: true 
