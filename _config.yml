@@ -21,7 +21,7 @@ components:
     # weibo,qq,wechat,douban,qzone,linkedin,facebook,twitter
     share:
         enabled: false
-        hide-platforms: qq,facebook
+        hide-platforms: qq
     # 不蒜子访问统计
     busuanzi:
         enabled: false
@@ -36,7 +36,7 @@ components:
     # 页面右上角，以及「关于」页面的二维码
     # 修改图片请替换 assets/images/qrcode.jpg
     qrcode:
-        enabled: true
+        enabled: false
         image_alt: 闷骚的程序员
     # 维基索引页使用哪种视图，支持 列表（list）/分类（cate）
     wiki:
@@ -51,12 +51,12 @@ highlight_theme: github
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
+author: Tuhalang
 organization: 
 organization_url: 
-github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+github_username: tuhalang
+location: Hanoi, Vietnam
+email: tuhalang007@outlook.com.vn
 
 # ---------------- #
 #    Navigation    #
@@ -133,20 +133,20 @@ disqus:
     username: 
 # https://imsun.net/posts/gitment-introduction/
 gitment:
-    owner: mzlogin
+    owner: tuhalang
     repo: blog-comments
     oauth:
-        client_id: d2e1cbbd298958076462
-        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+        client_id: ee780ad580c724383fc9
+        client_secret: b27916ae861218d97f817647e98288467e8f1ed0
 # https://github.com/gitalk/gitalk#install
 gitalk:
-    owner: mzlogin
+    owner: tuhalang
     repo: blog-comments
-    clientID: d2e1cbbd298958076462
-    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+    clientID: ee780ad580c724383fc9
+    clientSecret: b27916ae861218d97f817647e98288467e8f1ed0
 # https://utteranc.es/
 utterances:
-    repo: mzlogin/blog-comments
+    repo: tuhalang/blog-comments
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
