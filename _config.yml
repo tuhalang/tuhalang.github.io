@@ -82,9 +82,9 @@ navs:
     href: /wiki/
     label: Wiki
 
-  -
-    href: /links/
-    label: Links
+#   -
+#     href: /links/
+#     label: Links
 
   -
     href: /about/
