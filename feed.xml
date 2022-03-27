@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://tuhalang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tuhalang.github.io/" rel="alternate" type="text/html" /><updated>2022-03-27T17:20:49+07:00</updated><id>https://tuhalang.github.io/feed.xml</id><title type="html">Tuhalang</title><subtitle>This is a blog of lazy-man: Tuhalang</subtitle><author><name>Tuhalang</name></author><entry><title type="html">Solidity foundation - Part 1</title><link href="https://tuhalang.github.io/2022/03/27/Solidity-Foundation-Part-1/" rel="alternate" type="text/html" title="Solidity foundation - Part 1" /><published>2022-03-27T00:00:00+07:00</published><updated>2022-03-27T00:00:00+07:00</updated><id>https://tuhalang.github.io/2022/03/27/Solidity-Foundation-Part-1</id><content type="html" xml:base="https://tuhalang.github.io/2022/03/27/Solidity-Foundation-Part-1/">&lt;p&gt;In this post, we will dicuss the basics of solidity language.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://tuhalang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tuhalang.github.io/" rel="alternate" type="text/html" /><updated>2022-03-27T17:22:47+07:00</updated><id>https://tuhalang.github.io/feed.xml</id><title type="html">Tuhalang</title><subtitle>This is a blog of lazy-man: Tuhalang</subtitle><author><name>Tuhalang</name></author><entry><title type="html">Solidity foundation - Part 1</title><link href="https://tuhalang.github.io/2022/03/27/Solidity-Foundation-Part-1/" rel="alternate" type="text/html" title="Solidity foundation - Part 1" /><published>2022-03-27T00:00:00+07:00</published><updated>2022-03-27T00:00:00+07:00</updated><id>https://tuhalang.github.io/2022/03/27/Solidity-Foundation-Part-1</id><content type="html" xml:base="https://tuhalang.github.io/2022/03/27/Solidity-Foundation-Part-1/">&lt;p&gt;In this post, we will dicuss the basics of solidity language.&lt;/p&gt;
 
 &lt;h2 id=&quot;i-what-is-solidity&quot;&gt;I. What is Solidity?&lt;/h2&gt;
 
@@ -196,7 +196,7 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;6-immutable&quot;&gt;6. Immutable&lt;/h4&gt;
+&lt;h3 id=&quot;6-immutable&quot;&gt;6. Immutable&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Immutable is variable which can be set inside the constructor but cannot be modified afterwards.&lt;/li&gt;
