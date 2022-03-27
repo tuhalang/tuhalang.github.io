@@ -180,10 +180,18 @@
   
     {
       "title"    : "Smart contract - Hello world",
-      "category" : "Oracle",
+      "category" : "Smartcontract",
       
       "url"      : "https://tuhalang.github.io/2021/10/13/Smart-Contract-Hello-World/",
       "keywords" : "SmartContract, Blockchain"
+    } ,
+  
+    {
+      "title"    : "Solidity foundation - Part 1",
+      "category" : "Smartcontract",
+      
+      "url"      : "https://tuhalang.github.io/2022/03/27/Solidity-Foundation-Part-1/",
+      "keywords" : "Smartcontract, Blockchain, Solidity"
     } ,
   
     {
