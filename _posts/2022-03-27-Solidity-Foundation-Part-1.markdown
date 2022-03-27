@@ -16,7 +16,7 @@ In this post, we will dicuss the basics of solidity language.
 
 ### 1. Overview
 
-- Solidity is quite similer with Java. You have to write classes in Java for everything, while you have to write contracts in Solidity for everything.
+- Solidity is quite similar with Java. You have to write classes in Java for everything, while you have to write contracts in Solidity for everything.
 
 ### 2. Layout of a Solidity source file
 
@@ -41,7 +41,7 @@ contract SimpleStorage {
 
 - ***import "filename"*** : It is similar to other programming languages, using this to import other source files.
 
-- ***contract SimpleStorage { }*** : Declare a contract, every logic of contract is described here. It's really similer with Java.
+- ***contract SimpleStorage { }*** : Declare a contract, every logic of contract is described here. It's really similar with Java.
 
 ### 3. Primitive Data Types
 
