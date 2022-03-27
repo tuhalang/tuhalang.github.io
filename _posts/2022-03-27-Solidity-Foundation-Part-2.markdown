@@ -17,6 +17,7 @@ In this post, we will continue discussing the basics of Solidity language. You c
 - The keyType can be any build-in value type, string, bytes, or any contract.
 - The valueType can by any type including another mapping, or an array.
 - Mappings are not iterable. You cannot loop in all elements of the mapping, you only can access value if you have a key.
+
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
@@ -71,6 +72,7 @@ contract NestedMapping {
 - Array can have a compiler-time fixed size or a dynamic size.
 - The value types **bytes1**, **bytes2**, ..., **bytes32** hold a sequence of bytes from 1 to up to 32. 
 - **string** is dynamically-size UTF-8 encoded string and **bytes** is dynamically-size bytes array. **It is not a value-type**.
+
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
@@ -125,6 +127,7 @@ contract Array {
 
 #### Examples of removing array element
 ##### Remove array element by shifting elements from right to left:
+
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
@@ -163,7 +166,9 @@ contract ArrayRemoveByShifting {
     }
 }
 ```
+
 ##### Remove array element by copying last element into to the place to remove:
+
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
@@ -254,6 +259,7 @@ contract Enum {
 - Build-in value type is never enough for developers. We always needs to define new type for modeling objects in real world.
 - In Solidity, you can define your own type by creating a struct. If you are familiar with Golang or C, I think it is the same as the struct of those languages.
 - Struct can be declared outside of a contract and imported from another contract.
+
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
@@ -317,6 +323,7 @@ contract Todos {
     - storage: variable is a state variable (store on blockchain)
     - memory: variable is in memory and it exists while a function is being called
     - calldata: special data location that contains function arguments
+
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
@@ -445,6 +452,7 @@ contract Function {
 ### 8. View, Pure function
 - **View function** declares that no state will be changed.
 - **Pure function** declares that no state variable will be changed or read.
+
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
