@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Smart contract - Hello world
-categories: [Oracle, Database]
+categories: [Smartcontract, Blockchain]
 description: Smart contract - Hello world
 keywords: SmartContract, Blockchain
 ---

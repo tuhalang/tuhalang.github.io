@@ -70,9 +70,9 @@ navs:
     href: /categories/
     label: Categories
 
-#   -
-#     href: /archives/
-#     label: 归档
+  -
+    href: /archives/
+    label: Archives
 
 #   -
 #     href: /open-source/
