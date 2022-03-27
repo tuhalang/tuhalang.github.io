@@ -151,7 +151,7 @@ contract Constants {
 }
 ```
 
-#### 6. Immutable
+### 6. Immutable
 
 - Immutable is variable which can be set inside the constructor but cannot be modified afterwards.
 
