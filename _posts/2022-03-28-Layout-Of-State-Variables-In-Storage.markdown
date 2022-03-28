@@ -48,7 +48,7 @@ How to the storage or memory save state variables of the contract? In this post,
     - **data[i][j]** -> **keccak256(uint256(j) * keccak256(uint256(i) * p))**
 
 ### 2. Layout of state variables in memory
-- Elements in memory arrays in Solidity always occupy multiples of 32 bytes
+- Elements in memory arrays in Solidity always occupy multiples of 32 bytes.
 - Solidity reserves four 32-byte slots, with specific byte ranges (inclusive of endpoints) being used as follows:
     - 0x00 - 0x3f (64 bytes): scratch space for hashing methods
     - 0x40 - 0x5f (32 bytes): currently allocated memory size (free memory pointer)
