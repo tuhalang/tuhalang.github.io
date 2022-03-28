@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://tuhalang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tuhalang.github.io/" rel="alternate" type="text/html" /><updated>2022-03-27T21:31:19+07:00</updated><id>https://tuhalang.github.io/feed.xml</id><title type="html">Tuhalang</title><subtitle>This is a blog of lazy-man: Tuhalang</subtitle><author><name>Tuhalang</name></author><entry><title type="html">Solidity foundation - Part 1</title><link href="https://tuhalang.github.io/2022/03/27/Solidity-Foundation-Part-1/" rel="alternate" type="text/html" title="Solidity foundation - Part 1" /><published>2022-03-27T00:00:00+07:00</published><updated>2022-03-27T00:00:00+07:00</updated><id>https://tuhalang.github.io/2022/03/27/Solidity-Foundation-Part-1</id><content type="html" xml:base="https://tuhalang.github.io/2022/03/27/Solidity-Foundation-Part-1/">&lt;p&gt;In this post, we will dicuss the basics of solidity language.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://tuhalang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tuhalang.github.io/" rel="alternate" type="text/html" /><updated>2022-03-28T22:38:04+07:00</updated><id>https://tuhalang.github.io/feed.xml</id><title type="html">Tuhalang</title><subtitle>This is a blog of lazy-man: Tuhalang</subtitle><author><name>Tuhalang</name></author><entry><title type="html">Layout of state variables in storage, memory</title><link href="https://tuhalang.github.io/2022/03/28/Layout-Of-State-Variables-In-Storage/" rel="alternate" type="text/html" title="Layout of state variables in storage, memory" /><published>2022-03-28T00:00:00+07:00</published><updated>2022-03-28T00:00:00+07:00</updated><id>https://tuhalang.github.io/2022/03/28/Layout-Of-State-Variables-In-Storage</id><content type="html" xml:base="https://tuhalang.github.io/2022/03/28/Layout-Of-State-Variables-In-Storage/">&lt;p&gt;How to the storage or memory save state variables of the contract? In this post, we will discover it together.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-layout-of-state-variables-in-storage&quot;&gt;1. Layout of state variables in storage&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Firstly, each storage slot stores 32 bytes data. Except for dynamically-size arrays and mappings, data is stored contiguously item after item starting with the first state variable, which is stored in slot &lt;strong&gt;0&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Multiple, contiguous items that need less than 32 bytes are packed into a single storage slot if possible, according to the following rules:
+    &lt;ul&gt;
+      &lt;li&gt;The first item in a storage slot is stored lower-order aligned.&lt;/li&gt;
+      &lt;li&gt;Value types use only as many bytes as are necessary to store them.&lt;/li&gt;
+      &lt;li&gt;If a value type does not fit the remaining part of a storage slot, it is stored in the next storage slot.&lt;/li&gt;
+      &lt;li&gt;Structs and array data always start a new slot and their items are packed tightly according to these rules.&lt;/li&gt;
+      &lt;li&gt;Items following struct or array data always start a new storage slot.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For intance, two variables &lt;strong&gt;uint128&lt;/strong&gt; can be stored in the same slot.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Note&lt;/em&gt;&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;When using elements are smaller than 32 bytes, your contract’s gas usage may be higher. This is because the EVM operates on 32 bytes at a time. Therefore, if the element is smaller than that, the EVM must use more operations in order to reduce the size of the element from 32 bytes to the desired size.&lt;/li&gt;
+      &lt;li&gt;However, you also can take advantage of this to speed up processing. If you save many variables in the same slot and you need all of them for processing, you can combine multiple reads or writes into a single operation to save time.&lt;/li&gt;
+      &lt;li&gt;For example, in a struct, declaring your storage variables in the order of &lt;strong&gt;int128&lt;/strong&gt;, &lt;strong&gt;int128&lt;/strong&gt;, &lt;strong&gt;int256&lt;/strong&gt; is better than the order of &lt;strong&gt;int128&lt;/strong&gt;, &lt;strong&gt;int256&lt;/strong&gt;, &lt;strong&gt;int128&lt;/strong&gt;. Because the former will only take up two slots of storage whereas the latter will take up three. Furthermore, all elements in a struct often are processed together, the former will only take up two operations to read or write whereas the latter will take three.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The value corresponding to a array is located at &lt;strong&gt;keccak256(p)&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;For intance, the location of &lt;strong&gt;x[i][j]&lt;/strong&gt;, where the type of &lt;strong&gt;x&lt;/strong&gt; is &lt;strong&gt;uint24[][]&lt;/strong&gt;, is computed as follows (assuming &lt;strong&gt;x&lt;/strong&gt; itself is stored at slot &lt;strong&gt;p&lt;/strong&gt;):
+    &lt;ul&gt;
+      &lt;li&gt;The slot is &lt;strong&gt;keccak256(keccak256(p) + i) + floor(j / floor(256 / 24))&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;       -&amp;gt; &lt;strong&gt;p&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;x[0]&lt;/strong&gt;    -&amp;gt; &lt;strong&gt;keccak256(p)&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;x[i]&lt;/strong&gt;    -&amp;gt; &lt;strong&gt;keccak256(p) + i&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;x[i][0]&lt;/strong&gt; -&amp;gt; &lt;strong&gt;keccak256(keccak256(p) + i&lt;/strong&gt;)&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;x[i][j]&lt;/strong&gt; -&amp;gt; &lt;strong&gt;keccak256(keccak256(p) + i) + floor(j / floor(256 / 24))&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The value corresponding to a mapping key k is located at &lt;strong&gt;keccak256(h(k) . p)&lt;/strong&gt; where &lt;strong&gt;.&lt;/strong&gt; is concatenation and h is a function that is applied to the key depending on its type:
+    &lt;ul&gt;
+      &lt;li&gt;for value types, h pads the value to 32 bytes in the same way as when storing the value in memory.&lt;/li&gt;
+      &lt;li&gt;for strings and byte arrays, h(k) is just the unpadded data.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For intance,&lt;/p&gt;
+
+    &lt;div class=&quot;language-solidity highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;mapping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;mapping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The location of data[i][j] (assuming the position of the mapping itself is &lt;strong&gt;p&lt;/strong&gt;) is: &lt;strong&gt;keccak256(uint256(j) . keccak256(uint256(i) . p))&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;data[i]&lt;/strong&gt;    -&amp;gt; &lt;strong&gt;keccak256(uint256(i) * p)&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;data[i][j]&lt;/strong&gt; -&amp;gt; &lt;strong&gt;keccak256(uint256(j) * keccak256(uint256(i) * p))&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-layout-of-state-variables-in-memory&quot;&gt;2. Layout of state variables in memory&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Elements in memory arrays in Solidity always occupy multiples of 32 bytes&lt;/li&gt;
+  &lt;li&gt;Solidity reserves four 32-byte slots, with specific byte ranges (inclusive of endpoints) being used as follows:
+    &lt;ul&gt;
+      &lt;li&gt;0x00 - 0x3f (64 bytes): scratch space for hashing methods&lt;/li&gt;
+      &lt;li&gt;0x40 - 0x5f (32 bytes): currently allocated memory size (free memory pointer)&lt;/li&gt;
+      &lt;li&gt;0x60 - 0x7f (32 bytes): zero slot&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Tuhalang</name></author><category term="Smartcontract" /><category term="Blockchain" /><category term="Solidity" /><summary type="html">How to the storage or memory save state variables of the contract? In this post, we will discover it together.</summary></entry><entry><title type="html">Solidity foundation - Part 1</title><link href="https://tuhalang.github.io/2022/03/27/Solidity-Foundation-Part-1/" rel="alternate" type="text/html" title="Solidity foundation - Part 1" /><published>2022-03-27T00:00:00+07:00</published><updated>2022-03-27T00:00:00+07:00</updated><id>https://tuhalang.github.io/2022/03/27/Solidity-Foundation-Part-1</id><content type="html" xml:base="https://tuhalang.github.io/2022/03/27/Solidity-Foundation-Part-1/">&lt;p&gt;In this post, we will dicuss the basics of solidity language.&lt;/p&gt;
 
 &lt;h2 id=&quot;i-what-is-solidity&quot;&gt;I. What is Solidity?&lt;/h2&gt;
 
@@ -1502,77 +1570,4 @@
   &lt;li&gt;Và đây là kết quả sau khi import:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://tuhalang.github.io/assets/images/table.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;</content><author><name>Tuhalang</name></author><category term="Oracle" /><category term="Database" /><summary type="html">I. Download &amp;amp;&amp;amp; Install Dbeaver Các bạn có thể tải Dbeaver từ trang chủ Download Dbeaver</summary></entry><entry><title type="html">Hướng dẫn cài đặt oracle 11g trên ubuntu sử dụng docker</title><link href="https://tuhalang.github.io/2020/05/28/Oracle-Database/" rel="alternate" type="text/html" title="Hướng dẫn cài đặt oracle 11g trên ubuntu sử dụng docker" /><published>2020-05-28T00:00:00+07:00</published><updated>2020-05-28T00:00:00+07:00</updated><id>https://tuhalang.github.io/2020/05/28/Oracle-Database</id><content type="html" xml:base="https://tuhalang.github.io/2020/05/28/Oracle-Database/">&lt;p&gt;&lt;strong&gt;Tóm tắt:&lt;/strong&gt; Trong bài viết này mình sẽ hướng dẫn các bạn cài đặt oracle database 11g chạy trên docker&lt;/p&gt;
-
-&lt;p&gt;I. Cài đặt docker&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Để cài đặt docker trên ubuntu thì vô cùng đơn giản bạn chỉ cần mở terminal và chạy câu lệnh sau:
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;docker-ce
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Kiểm tra version docker vừa được cài đặt:
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;docker &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Run hello world
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;docker run hello-world
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;II. Run oracle database&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Việc cài đặt oracle database bây giờ sẽ trở nên vô cùng đơn giản chúng ta chỉ cần mở terminal và chạy câu lệnh sau:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 1521:1521 epiclabs/docker-oracle-xe-11g
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;Tuy nhiên nếu ta run oracle database như trên thì mỗi lần khởi động lại nó sẽ mất hết dữ liệu vì thế ta sẽ phải mount volumn:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &amp;lt;your folder&amp;gt;:/u01/app/oracle &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 1521:1521 epiclabs/docker-oracle-xe-11g
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Như vậy thông tin kết nối database sẽ như sau:&lt;/p&gt;
-
-    &lt;table&gt;
-      &lt;thead&gt;
-        &lt;tr&gt;
-          &lt;th&gt;Thuộc tính&lt;/th&gt;
-          &lt;th&gt;Giá trị&lt;/th&gt;
-        &lt;/tr&gt;
-      &lt;/thead&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;hostname&lt;/td&gt;
-          &lt;td&gt;localhost&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;port&lt;/td&gt;
-          &lt;td&gt;1521&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;sid&lt;/td&gt;
-          &lt;td&gt;xe&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;username&lt;/td&gt;
-          &lt;td&gt;system&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;password&lt;/td&gt;
-          &lt;td&gt;oracle&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Trong trường hợp bạn không muốn sử dụng port 1521 mà muốn xử dụng port khác thì chỉ cần thay đổi như sau:&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &amp;lt;your folder&amp;gt;:/u01/app/oracle &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; XXXX:1521 epiclabs/docker-oracle-xe-11g
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Tuhalang</name></author><category term="Oracle" /><category term="Database" /><category term="Docker" /><summary type="html">Tóm tắt: Trong bài viết này mình sẽ hướng dẫn các bạn cài đặt oracle database 11g chạy trên docker</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;https://tuhalang.github.io/assets/images/table.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;</content><author><name>Tuhalang</name></author><category term="Oracle" /><category term="Database" /><summary type="html">I. Download &amp;amp;&amp;amp; Install Dbeaver Các bạn có thể tải Dbeaver từ trang chủ Download Dbeaver</summary></entry></feed>

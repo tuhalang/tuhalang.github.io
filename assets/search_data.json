@@ -203,6 +203,14 @@
     } ,
   
     {
+      "title"    : "Layout of state variables in storage, memory",
+      "category" : "Smartcontract",
+      
+      "url"      : "https://tuhalang.github.io/2022/03/28/Layout-Of-State-Variables-In-Storage/",
+      "keywords" : "Smartcontract, Blockchain, Solidity"
+    } ,
+  
+    {
       "title"    : "Wiki Template",
       "category" : "",
       
