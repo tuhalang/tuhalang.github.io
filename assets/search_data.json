@@ -211,6 +211,14 @@
     } ,
   
     {
+      "title"    : "A simple solidity program",
+      "category" : "Smartcontract",
+      
+      "url"      : "https://tuhalang.github.io/2022/03/31/Simple-Solidity-Program/",
+      "keywords" : "Smartcontract, Blockchain, Solidity"
+    } ,
+  
+    {
       "title"    : "Wiki Template",
       "category" : "",
       
