@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Visibility in Solidity
+title: Call vs DelegateCall in Solidity
 categories: [Smartcontract, Blockchain, Solidity]
-description: Call, DelegateCall in Solidity
-keywords: Smartcontract, Blockchain, Solidity, Visibility
+description: Call vs DelegateCall in Solidity
+keywords: Smartcontract, Blockchain, Solidity, Call, DelegateCall
 ---
 
 In Solidity, when you want to call other contracts, you can use **call** or **delegateCall** functions. So, what are different between **call** and **delegateCall**?
