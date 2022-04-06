@@ -227,11 +227,11 @@
     } ,
   
     {
-      "title"    : "Visibility in Solidity",
+      "title"    : "Call vs DelegateCall in Solidity",
       "category" : "Smartcontract",
       
       "url"      : "https://tuhalang.github.io/2022/04/06/Call-vs-Delegate-Call/",
-      "keywords" : "Smartcontract, Blockchain, Solidity, Visibility"
+      "keywords" : "Smartcontract, Blockchain, Solidity, Call, DelegateCall"
     } ,
   
     {
