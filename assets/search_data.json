@@ -219,6 +219,22 @@
     } ,
   
     {
+      "title"    : "Visibility in Solidity",
+      "category" : "Smartcontract",
+      
+      "url"      : "https://tuhalang.github.io/2022/04/02/Visibility-In-Solidity/",
+      "keywords" : "Smartcontract, Blockchain, Solidity, Visibility"
+    } ,
+  
+    {
+      "title"    : "Visibility in Solidity",
+      "category" : "Smartcontract",
+      
+      "url"      : "https://tuhalang.github.io/2022/04/06/Call-vs-Delegate-Call/",
+      "keywords" : "Smartcontract, Blockchain, Solidity, Visibility"
+    } ,
+  
+    {
       "title"    : "Wiki Template",
       "category" : "",
       
