@@ -1,0 +1,72 @@
+---
+layout: wiki
+title: ideaVim profile
+cate1: vim
+cate2: 
+description: vim, idea
+keywords: vim, idea
+type:
+link:
+---
+
+```bash
+"" Source your .vimrc
+"source ~/.vimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+" map Q gq
+
+let mapleader = " "
+
+set nu
+set relativenumber
+
+" plugins
+set surround
+set NERDTree
+set matchit
+set ideajoin
+
+" NERDTree
+map <C-n> :NERDTreeToggle <CR>
+let g:NERDTreeMapQuit = '<C-n>'
+
+nmap <Tab> <action>(NextTab)
+nmap <S-Tab> <action>(PreviousTab)
+
+nmap <leader>r <action>(RenameElement)
+nmap <leader>xx <action>(CloseEditor)
+nmap <leader>xo <action>(CloseAllEditorsButActive)
+nmap <leader>xa <action>(CloseAllEditors)
+nmap <leader>f <action>(Find)
+nmap <leader>Ff <action>(FindInPath)
+nmap <leader>Fu <action>(FindUsages)
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+imap jj <Esc>
+set timeoutlen=1000
+```
