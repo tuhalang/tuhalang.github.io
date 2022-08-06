@@ -243,6 +243,14 @@
     } ,
   
     {
+      "title"    : "ideaVim profile",
+      "category" : "",
+      
+      "url"      : "https://tuhalang.github.io/wiki/2022-08-06-ideaVim/",
+      "keywords" : "vim, idea"
+    } ,
+  
+    {
       "title"    : "Wiki Template",
       "category" : "",
       
