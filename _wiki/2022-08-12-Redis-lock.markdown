@@ -1,8 +1,8 @@
 ---
 layout: wiki
 title: Redis lock
-cate1: redis
-cate2: spring-boot
+cate1: spring-boot
+cate2: redis
 description: redis, distributed-lock, spring-boot
 keywords: redis, distributed-lock, spring-boot
 type:
