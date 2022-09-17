@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: Huong dan su dung phan mem
+title: Ứng dụng tải video từ ứng dụng douyin
 cate1: crawler
 cate2: auto
 description: tiktok, douyin
