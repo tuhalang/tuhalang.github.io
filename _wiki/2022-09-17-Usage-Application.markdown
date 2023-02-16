@@ -24,7 +24,7 @@ link:
 #### Tải ứng dụng
 
 - Link tải:
-    - Window: [CatTools](https://github.com/tuhalang/tuhalang.github.io/blob/master/tools/CatTools.exe)
+    - Window: [CatTools](https://github.com/tuhalang/tuhalang.github.io/blob/master/tools/CatTools.exe.zip)
     - MacOS: comming soon
     - Linux: comming later
 
