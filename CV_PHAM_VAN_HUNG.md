@@ -33,7 +33,7 @@ GPA: 3.58/4\
 ### **Work Experience**
 
 **Software Engineer**\
-*Employment Hero* – *Jan 2023 – Present*
+*Employment Hero* – *Jun 2024 – Present*
 
 - Design, develop, and maintain workplace compliance features enabling users to manage HR policies, certifications, and documentation.
 
@@ -118,7 +118,7 @@ GPA: 3.58/4\
 ### **Technical Skills**
 
 - **Languages:** Java, Ruby, Golang, Python, JavaScript
-- **Frameworks:** Spring, Ruby on Rails
+- **Frameworks:** Spring, Ruby on Rails, VueJS
 - **Databases:** Oracle, MySQL, PostgreSQL
 - **Tools & Platforms:** Git, Docker, Ansible, Jenkins, SonarQube, Datadog, Sentry
 - **Operating Systems:** Windows, Linux, macOS
