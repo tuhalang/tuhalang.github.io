@@ -1,6 +1,8 @@
 ## Hung Pham Van
 
-**Location:** Hanoi, Vietnam  ‪(+84) 394675935‬  ‪[vanhung101299@gmail.com](mailto\:vanhung101299@gmail.com)‬
+**Location:** Hanoi, Vietnam \
+**Phone number:** ‪(+84) 394675935‬ \
+**Email:** [vanhung101299@gmail.com](mailto\:vanhung101299@gmail.com)‬
 
 ---
 
