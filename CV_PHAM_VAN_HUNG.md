@@ -8,7 +8,7 @@
 
 ### **Professional Summary**
 
-I am a passionate and solution-driven **Software Engineer** with over three years of experience in designing, developing, and maintaining scalable backend systems. I enjoy tackling complex challenges and delivering high-impact features that meet real-world business needs. My expertise spans **Java** and **Ruby**, along with strong knowledge in system architecture, CI/CD pipelines, cloud infrastructure, and distributed systems.
+I am a passionate and solution-driven **Software Engineer** with over four years of experience in designing, developing, and maintaining scalable backend systems. I enjoy tackling complex challenges and delivering high-impact features that meet real-world business needs. My expertise spans **Java** and **Ruby**, along with strong knowledge in system architecture, CI/CD pipelines, cloud infrastructure, and distributed systems.
 
 I am proficient in utilizing a variety of **AI-powered tools** such as GitHub Copilot, Cursor, v0.dev, Gemini, and Claude to enhance productivity, automate tasks, and boost development efficiency.
 
