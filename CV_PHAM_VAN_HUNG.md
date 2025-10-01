@@ -8,11 +8,11 @@
 
 ### **Professional Summary**
 
-I am a passionate and solution-driven **Software Engineer** with over four years of experience in designing, developing, and maintaining scalable backend systems. I enjoy tackling complex challenges and delivering high-impact features that meet real-world business needs. My expertise spans **Java** and **Ruby**, along with strong knowledge in system architecture, CI/CD pipelines, cloud infrastructure, and distributed systems.
+I am a passionate and solution-driven **Software Engineer** with over five years of experience in designing, developing, and maintaining scalable backend systems. I enjoy tackling complex challenges and delivering high-impact features that meet real-world business needs. My expertise spans **Java** and **Ruby**, along with strong knowledge in system architecture, CI/CD pipelines, cloud infrastructure, and distributed systems.
 
-I am proficient in utilizing a variety of **AI-powered tools** such as GitHub Copilot, Cursor, v0.dev, Gemini, and Claude to enhance productivity, automate tasks, and boost development efficiency.
+I am proficient in utilizing a variety of **AI-powered tools** such as GitHub Copilot, Cursor, v0.dev, and Gemini to enhance productivity, automate tasks, and boost development efficiency.
 
-Currently, I work at **Employment Hero**, where I am part of the **Workplace Compliance team**, contributing to the development of features that help businesses stay legally compliant across multiple regions.
+Currently, I work at **Employment Hero**, where I am part of the **CoreHR team**, where I contribute to building features that streamline HR operations and support compliance across multiple regions.
 
 ---
 
@@ -37,13 +37,13 @@ GPA: 3.58/4\
 **Software Engineer**\
 *Employment Hero* – *Jun 2024 – Present*
 
-- Design, develop, and maintain workplace compliance features enabling users to manage HR policies, certifications, and documentation.
+- Design, develop, and maintain CoreHR features, including workplace compliance tools that help users manage HR policies, certifications, and documentation, as well as modules for onboarding, offboarding, and broader employee lifecycle management
 
 - Collaborate with cross-functional teams to build scalable microservices based on Ruby.
 
 - Maintain infrastructure on AWS; implement monitoring and error tracking using Datadog and Sentry.
 
-- Promote modular development using a chunk-based code management approach.
+- Use a chunk-based Git workflow to support modular development.
 
 - Developed scalable compliance features that serve diverse regional requirements.
 
@@ -80,7 +80,7 @@ GPA: 3.58/4\
 - Contributed to a system with over 50 million users in the Japanese market.
 
 **Software Engineer**\
-*Viettel Telecom* – *Apr 2021 – Oct 2021*
+*Viettel Telecom* – *Sep 2019 – Oct 2021*
 
 - Maintained authentication and authorization systems (VSA).
 
@@ -124,4 +124,3 @@ GPA: 3.58/4\
 - **Databases:** Oracle, MySQL, PostgreSQL
 - **Tools & Platforms:** Git, Docker, Ansible, Jenkins, SonarQube, Datadog, Sentry
 - **Operating Systems:** Windows, Linux, macOS
-
